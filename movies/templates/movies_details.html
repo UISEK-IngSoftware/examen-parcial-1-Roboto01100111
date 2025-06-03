@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Listado de peliculas{% endblock title %}
+{% block content %}
+
+    <p>Pelicula seleccionada: <strong>{{ Gore | capfirst }}</strong></p>
+    <img src="{{ Gore.Picture.url }}" alt="{{ Gore.Nombre }}" class="img-fluid w-25 rounded shadow"/>
+    <h3> {{ Gore.Nombre }} </h3>
+    <ul>
+        <li>Año: {{ Gore.Año_de_Publicación }} </li>
+        <li>Director:  {{ Gore.Director }} </li>
+        <li>País: {{ Gore.País }} </li>
+        <li>Género: {{ Gore.Género }} </li>
+        <li>Sinopsis: {{ Gore.Sinopsis }} </li>
+    </ul>
+{% endblock content %}

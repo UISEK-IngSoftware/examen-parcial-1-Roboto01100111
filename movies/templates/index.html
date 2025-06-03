@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Listado de peliculas{% endblock title %}
+{% block content %}
+
+<p class="p-2">Cine Clandestino es el refugio digital para los verdaderos cinéfilos rebeldes. 
+            Aquí no encontrarás lo que todos ven, sino lo que pocos se atreven a proyectar. 
+            Cine oculto, películas olvidadas, joyas malditas y versiones que nunca llegaron al corte final. 
+            Entra bajo tu propio riesgo... y que comience la función.</p>
+<ul class="list-group">
+    <div class="row">
+        {% for pelicula in Gore %}
+        <div class="col">
+            <div class="card">
+                <img src="{{pelicula.Picture.url}}" alt="{{pelicula.Nombre}}" class="card-img-top">
+                <div class= "card-body">
+                    <h5 class="card-title">{{pelicula.Nombre}}</h5>
+                    <p class="card-text">Año: {{pelicula.Año_de_Publicación}} | Género: {{pelicula.Género}} </p>
+                    <a class="btn btn-primary" href="{% url 'detalle_pelicula' pelicula.id %}" role="button">Sinopsis</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+{% endblock content %}
